@@ -52,7 +52,7 @@
             // 
             headingLabel.AutoSize = true;
             headingLabel.Font = new Font("Impact", 25.875F, FontStyle.Regular, GraphicsUnit.Point);
-            headingLabel.Location = new Point(26, 16);
+            headingLabel.Location = new Point(3, -1);
             headingLabel.Name = "headingLabel";
             headingLabel.Size = new Size(582, 85);
             headingLabel.TabIndex = 7;
@@ -173,7 +173,7 @@
             // 
             tournamentPlayersLabel.AutoSize = true;
             tournamentPlayersLabel.Font = new Font("Impact", 25.875F, FontStyle.Regular, GraphicsUnit.Point);
-            tournamentPlayersLabel.Location = new Point(674, 15);
+            tournamentPlayersLabel.Location = new Point(657, -1);
             tournamentPlayersLabel.Name = "tournamentPlayersLabel";
             tournamentPlayersLabel.Size = new Size(484, 85);
             tournamentPlayersLabel.TabIndex = 20;
@@ -267,7 +267,7 @@
             Controls.Add(tournamentNameLabel);
             Controls.Add(headingLabel);
             Font = new Font("Impact", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "CreateTournamentForm";
             Text = "Create Tournament";
             ResumeLayout(false);
