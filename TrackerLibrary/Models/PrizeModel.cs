@@ -21,6 +21,7 @@ namespace TrackerLibrary.Models
         {
 
         }
+        // We may need to get rid of PrizeModel() above as it may be a duplicate.
 
         public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
         {

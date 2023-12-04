@@ -165,6 +165,7 @@
             Controls.Add(prizePercentValue);
             Name = "CreatePrizeForm";
             Text = "Create Prize";
+            Load += CreatePrizeForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -25,16 +25,15 @@ namespace TrackerUI
             if (ValidateForm())
             {
                 PrizeModel model = new PrizeModel(
-                    placeNameValue.Text, 
-                    placeNumberValue.Text, 
-                    prizeAmountValue.Text, 
-                    prizePercentValue.Text );
+                    placeNameValue.Text,
+                    placeNumberValue.Text,
+                    prizeAmountValue.Text,
+                    prizePercentValue.Text);
 
                 // Once we have a model, we actually have to save it. We'll do that below.
-                foreach(IDataConnection db in GlobalConfig.Connections)
-                {
-                    db.CreatePrize( model );
-                }
+                
+                GlobalConfig.Connection.CreatePrize(model);
+                
 
                 placeNameValue.Text = "";
                 placeNumberValue.Text = "";
@@ -44,7 +43,7 @@ namespace TrackerUI
             }
             else
             {
-                MessageBox.Show("This form has invalid information. You did something wrong and you're going hell becuase of it. Please check it and try again.");            
+                MessageBox.Show("This form has invalid information. You did something wrong and you're going hell becuase of it. Please check it and try again.");
             }
             // When we're all done creating a valid form, we want to wipe out the values in the form.
             // We also want to Prize Amount and Prize Percent fields to start of with 0 - makes for better user interface.
@@ -54,7 +53,7 @@ namespace TrackerUI
         private bool ValidateForm()
         {
             bool output = true;
-            int placeNumber = 0;
+            int placeNumber;
             bool placeNumberValidNumber = int.TryParse(placeNumberValue.Text, out placeNumber);
 
             if (placeNumberValidNumber == false)
@@ -87,9 +86,12 @@ namespace TrackerUI
             {
                 output = false;
             }
-          
-
             return output;
+        }
+
+        private void CreatePrizeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
