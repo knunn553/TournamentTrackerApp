@@ -35,17 +35,17 @@
             selectTeamMemberDropBox = new ComboBox();
             addTeamMemberButton = new Button();
             addMemberGroupBox = new GroupBox();
+            addNewTeamMemberButton = new Button();
+            memberPhoneNumberLabel = new Label();
+            memberEmailLabel = new Label();
+            lastNameLabel = new Label();
+            firstNameLabel = new Label();
             firstNameValue = new TextBox();
             lastNameValue = new TextBox();
             memberEmailValue = new TextBox();
             memberPhoneNumberValue = new TextBox();
-            firstNameLabel = new Label();
-            lastNameLabel = new Label();
-            memberEmailLabel = new Label();
-            memberPhoneNumberLabel = new Label();
-            addNewTeamMemberButton = new Button();
             teamMembersListBox = new ListBox();
-            deleteTeamMemberButton = new Button();
+            removeTeamMemberButton = new Button();
             createTeamButton = new Button();
             addMemberGroupBox.SuspendLayout();
             SuspendLayout();
@@ -95,6 +95,7 @@
             selectTeamMemberDropBox.Name = "selectTeamMemberDropBox";
             selectTeamMemberDropBox.Size = new Size(283, 40);
             selectTeamMemberDropBox.TabIndex = 15;
+            selectTeamMemberDropBox.SelectedIndexChanged += selectTeamMemberDropBox_SelectedIndexChanged;
             // 
             // addTeamMemberButton
             // 
@@ -109,6 +110,7 @@
             addTeamMemberButton.TabIndex = 17;
             addTeamMemberButton.Text = "Add Existing Team Member";
             addTeamMemberButton.UseVisualStyleBackColor = false;
+            addTeamMemberButton.Click += addTeamMemberButton_Click;
             // 
             // addMemberGroupBox
             // 
@@ -127,6 +129,61 @@
             addMemberGroupBox.TabIndex = 18;
             addMemberGroupBox.TabStop = false;
             addMemberGroupBox.Text = "Add New Member";
+            // 
+            // addNewTeamMemberButton
+            // 
+            addNewTeamMemberButton.BackColor = SystemColors.ControlLight;
+            addNewTeamMemberButton.FlatAppearance.BorderColor = Color.Red;
+            addNewTeamMemberButton.FlatAppearance.MouseDownBackColor = Color.Red;
+            addNewTeamMemberButton.FlatAppearance.MouseOverBackColor = Color.Gray;
+            addNewTeamMemberButton.FlatStyle = FlatStyle.Flat;
+            addNewTeamMemberButton.Location = new Point(6, 228);
+            addNewTeamMemberButton.Name = "addNewTeamMemberButton";
+            addNewTeamMemberButton.Size = new Size(526, 43);
+            addNewTeamMemberButton.TabIndex = 19;
+            addNewTeamMemberButton.Text = "Add New Team Member";
+            addNewTeamMemberButton.UseVisualStyleBackColor = false;
+            addNewTeamMemberButton.Click += addNewTeamMemberButton_Click;
+            // 
+            // memberPhoneNumberLabel
+            // 
+            memberPhoneNumberLabel.AutoSize = true;
+            memberPhoneNumberLabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            memberPhoneNumberLabel.Location = new Point(9, 183);
+            memberPhoneNumberLabel.Name = "memberPhoneNumberLabel";
+            memberPhoneNumberLabel.Size = new Size(214, 39);
+            memberPhoneNumberLabel.TabIndex = 26;
+            memberPhoneNumberLabel.Text = "Phone Number:";
+            // 
+            // memberEmailLabel
+            // 
+            memberEmailLabel.AutoSize = true;
+            memberEmailLabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            memberEmailLabel.Location = new Point(128, 138);
+            memberEmailLabel.Name = "memberEmailLabel";
+            memberEmailLabel.Size = new Size(93, 39);
+            memberEmailLabel.TabIndex = 25;
+            memberEmailLabel.Text = "Email:";
+            // 
+            // lastNameLabel
+            // 
+            lastNameLabel.AutoSize = true;
+            lastNameLabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lastNameLabel.Location = new Point(65, 93);
+            lastNameLabel.Name = "lastNameLabel";
+            lastNameLabel.Size = new Size(156, 39);
+            lastNameLabel.TabIndex = 24;
+            lastNameLabel.Text = "Last Name:";
+            // 
+            // firstNameLabel
+            // 
+            firstNameLabel.AutoSize = true;
+            firstNameLabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            firstNameLabel.Location = new Point(61, 45);
+            firstNameLabel.Name = "firstNameLabel";
+            firstNameLabel.Size = new Size(160, 39);
+            firstNameLabel.TabIndex = 22;
+            firstNameLabel.Text = "First Name:";
             // 
             // firstNameValue
             // 
@@ -156,60 +213,6 @@
             memberPhoneNumberValue.Size = new Size(283, 39);
             memberPhoneNumberValue.TabIndex = 23;
             // 
-            // firstNameLabel
-            // 
-            firstNameLabel.AutoSize = true;
-            firstNameLabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            firstNameLabel.Location = new Point(61, 45);
-            firstNameLabel.Name = "firstNameLabel";
-            firstNameLabel.Size = new Size(160, 39);
-            firstNameLabel.TabIndex = 22;
-            firstNameLabel.Text = "First Name:";
-            // 
-            // lastNameLabel
-            // 
-            lastNameLabel.AutoSize = true;
-            lastNameLabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lastNameLabel.Location = new Point(65, 93);
-            lastNameLabel.Name = "lastNameLabel";
-            lastNameLabel.Size = new Size(156, 39);
-            lastNameLabel.TabIndex = 24;
-            lastNameLabel.Text = "Last Name:";
-            // 
-            // memberEmailLabel
-            // 
-            memberEmailLabel.AutoSize = true;
-            memberEmailLabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            memberEmailLabel.Location = new Point(128, 138);
-            memberEmailLabel.Name = "memberEmailLabel";
-            memberEmailLabel.Size = new Size(93, 39);
-            memberEmailLabel.TabIndex = 25;
-            memberEmailLabel.Text = "Email:";
-            // 
-            // memberPhoneNumberLabel
-            // 
-            memberPhoneNumberLabel.AutoSize = true;
-            memberPhoneNumberLabel.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            memberPhoneNumberLabel.Location = new Point(9, 183);
-            memberPhoneNumberLabel.Name = "memberPhoneNumberLabel";
-            memberPhoneNumberLabel.Size = new Size(214, 39);
-            memberPhoneNumberLabel.TabIndex = 26;
-            memberPhoneNumberLabel.Text = "Phone Number:";
-            // 
-            // addNewTeamMemberButton
-            // 
-            addNewTeamMemberButton.BackColor = SystemColors.ControlLight;
-            addNewTeamMemberButton.FlatAppearance.BorderColor = Color.Red;
-            addNewTeamMemberButton.FlatAppearance.MouseDownBackColor = Color.Red;
-            addNewTeamMemberButton.FlatAppearance.MouseOverBackColor = Color.Gray;
-            addNewTeamMemberButton.FlatStyle = FlatStyle.Flat;
-            addNewTeamMemberButton.Location = new Point(6, 228);
-            addNewTeamMemberButton.Name = "addNewTeamMemberButton";
-            addNewTeamMemberButton.Size = new Size(526, 43);
-            addNewTeamMemberButton.TabIndex = 19;
-            addNewTeamMemberButton.Text = "Add New Team Member";
-            addNewTeamMemberButton.UseVisualStyleBackColor = false;
-            // 
             // teamMembersListBox
             // 
             teamMembersListBox.FormattingEnabled = true;
@@ -219,19 +222,20 @@
             teamMembersListBox.Size = new Size(456, 388);
             teamMembersListBox.TabIndex = 27;
             // 
-            // deleteTeamMemberButton
+            // removeTeamMemberButton
             // 
-            deleteTeamMemberButton.BackColor = SystemColors.ControlLight;
-            deleteTeamMemberButton.FlatAppearance.BorderColor = Color.Red;
-            deleteTeamMemberButton.FlatAppearance.MouseDownBackColor = Color.Red;
-            deleteTeamMemberButton.FlatAppearance.MouseOverBackColor = Color.Gray;
-            deleteTeamMemberButton.FlatStyle = FlatStyle.Flat;
-            deleteTeamMemberButton.Location = new Point(590, 532);
-            deleteTeamMemberButton.Name = "deleteTeamMemberButton";
-            deleteTeamMemberButton.Size = new Size(456, 43);
-            deleteTeamMemberButton.TabIndex = 27;
-            deleteTeamMemberButton.Text = "Delete Selected Member";
-            deleteTeamMemberButton.UseVisualStyleBackColor = false;
+            removeTeamMemberButton.BackColor = SystemColors.ControlLight;
+            removeTeamMemberButton.FlatAppearance.BorderColor = Color.Red;
+            removeTeamMemberButton.FlatAppearance.MouseDownBackColor = Color.Red;
+            removeTeamMemberButton.FlatAppearance.MouseOverBackColor = Color.Gray;
+            removeTeamMemberButton.FlatStyle = FlatStyle.Flat;
+            removeTeamMemberButton.Location = new Point(590, 532);
+            removeTeamMemberButton.Name = "removeTeamMemberButton";
+            removeTeamMemberButton.Size = new Size(456, 43);
+            removeTeamMemberButton.TabIndex = 27;
+            removeTeamMemberButton.Text = "Remove Selected Member";
+            removeTeamMemberButton.UseVisualStyleBackColor = false;
+            removeTeamMemberButton.Click += removeTeamMemberButton_Click;
             // 
             // createTeamButton
             // 
@@ -246,6 +250,7 @@
             createTeamButton.TabIndex = 28;
             createTeamButton.Text = "Create Team";
             createTeamButton.UseVisualStyleBackColor = false;
+            createTeamButton.Click += createTeamButton_Click;
             // 
             // CreateTeamForm
             // 
@@ -254,7 +259,7 @@
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1069, 657);
             Controls.Add(createTeamButton);
-            Controls.Add(deleteTeamMemberButton);
+            Controls.Add(removeTeamMemberButton);
             Controls.Add(teamMembersListBox);
             Controls.Add(addMemberGroupBox);
             Controls.Add(addTeamMemberButton);
@@ -291,7 +296,7 @@
         private TextBox memberPhoneNumberValue;
         private Button addNewTeamMemberButton;
         private ListBox teamMembersListBox;
-        private Button deleteTeamMemberButton;
+        private Button removeTeamMemberButton;
         private Button createTeamButton;
     }
 }
