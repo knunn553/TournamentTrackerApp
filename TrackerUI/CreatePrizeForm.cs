@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,9 +16,11 @@ namespace TrackerUI
 {
     public partial class CreatePrizeForm : Form
     {
-        public CreatePrizeForm()
+        IPrizeRequester callingForm;
+        public CreatePrizeForm(IPrizeRequester caller)
         {
             InitializeComponent();
+            callingForm = caller;
         }
 
         private void createPrizeButton_Click(object sender, EventArgs e)
@@ -33,6 +36,8 @@ namespace TrackerUI
                 // Once we have a model, we actually have to save it. We'll do that below.
                 
                 GlobalConfig.Connection.CreatePrize(model);
+                callingForm.PrizeComplete(model);
+                this.Close();
                 
 
                 placeNameValue.Text = "";
